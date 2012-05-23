@@ -80,3 +80,38 @@ begin
 end;
 /
 
+-------------------------------------------------------------
+--员工表  
+create table t_employee(  
+id number(10) primary key,  
+name varchar2(20),  
+age number(3),  
+salary number(10),  
+deptid number(10)  
+);  
+ 
+--部门表  
+create table t_dept(  
+id number(10) primary key,  
+name varchar2(20)  
+);  
+  
+--存储过程 package  
+create or replace package mypackage AS TYPE mycursor IS REF CURSOR;  
+  
+procedure EMP_TJ( in_deptid number,  
+                  in_age number,  
+                  allemps out mypackage.mycursor);  
+end mypackage;  
+--存储过程package body   
+create or replace package body mypackage is  
+procedure EMP_TJ(  
+             in_deptid number,  
+             in_age number,  
+             allemps out mypackage.mycursor)  
+IS  
+BEGIN  
+ open allemps for  
+   SELECT id,name,age,salary,deptid FROM T_EMPLOYEE WHERE DEPTID=IN_DEPTID AND AGE>IN_AGE;  
+END EMP_TJ;  
+end mypackage;  
