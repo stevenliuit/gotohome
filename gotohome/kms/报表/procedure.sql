@@ -79,3 +79,8 @@ begin
 begin
   str_hello('1000,1001-2000,2001-3000,3001-4000');
 end;
+
+http://blog.sina.com.cn/s/blog_8333cf8f01012tvm.html
+http://www.cnblogs.com/hoojo/archive/2011/05/03/2035388.html
+http://www.iteye.com/problems/34895
+
