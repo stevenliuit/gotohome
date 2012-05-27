@@ -1,0 +1,53 @@
+输入参数
+balancemonth
+
+步骤：
+1、向前推12个月
+last12month,lastyear;
+2、前年
+beforelastyear
+
+lastmonth = last12month;
+midmonth = last12month - lastyear;  
+while(lastmonth<= balancemonth){
+
+lastyear = str(lastmonth,1,4);
+
+beforelastyear = lastyear-1;
+
+--获得lastyear的当年 1月到lastmonth月总频次
+lastfrequency
+过滤条件为
+where ? between lastyear*100+1 and lastmonth;
+
+--获得beforelastyear 1月到lastmonth月总频次
+beforelastfrequency
+过滤条件为
+where ? =beforelastyear;
+
+if(midmonth<12){
+lastmonth++;
+midmonth++;
+}else{
+lastmonth :=加到第二年1月;
+midmonth:=01;
+}
+}
+
+if(last12month <= 12月){
+
+
+
+月数 = lastmonth - lastyear*100;
+
+上一年12个月合计：where ？ = beforelastyear;
+lastmonth++;
+}
+
+
+
+
+
+
+
+
