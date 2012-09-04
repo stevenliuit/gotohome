@@ -1,0 +1,10 @@
+
+278ҳ
+SELECT
+MIN(region_id)
+KEEP (DENSE_RANK FIRST ORDER BY SUM(tot_sales) DESC) best_region,
+MIN(region_id)
+KEEP (DENSE_RANK LAST ORDER BY SUM(tot_sales) DESC) worst_region
+FROM orders
+WHERE year = 2001
+GROUP BY region_id;
